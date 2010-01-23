@@ -103,6 +103,7 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 	
 	editingIndex = indexPath;
+	letterGradeSelection = [letterGradeArray indexOfObject:[[courses allValues] objectAtIndex:indexPath.row]];
 	
 	UIActionSheet *gradeSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n"
 															delegate:self
@@ -127,7 +128,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if ([alertView isEqual:addCourseAlert]) {
-		if ([[addCourseAlert textFieldAtIndex:0] text] == @"") {
+		if (!([[addCourseAlert textFieldAtIndex:0] text] == @"")) {
 			[self addCourse:[[addCourseAlert textFieldAtIndex:0] text]];
 		}
 	}
@@ -221,7 +222,6 @@
 	}
 	
 	[self saveCourseList];
-	NSLog(@"Updated courses: %@", courses);
 }
 
 - (void)viewDidUnload {

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdMobDelegateProtocol.h"
 
-
-@interface GPAViewController : UIViewController {
+@interface GPAViewController : UIViewController <AdMobDelegate> {
+	AdMobView *advert;
+	
 	NSMutableDictionary *courses;
 	NSDictionary *gradePointValues;
 	

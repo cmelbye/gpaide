@@ -20,14 +20,23 @@
 		CB1356EF11094DC5009F7348 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1356EE11094DC5009F7348 /* gear.png */; };
 		CB1356F711095035009F7348 /* GPAView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1356F611095035009F7348 /* GPAView.xib */; };
 		CB13570D11095347009F7348 /* GPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB13570C11095347009F7348 /* GPAViewController.m */; };
-		CB135819110969C1009F7348 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135818110969C1009F7348 /* CoreData.framework */; };
+		CB135C00110AB16A009F7348 /* libAdMobDevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135BFE110AB16A009F7348 /* libAdMobDevice.a */; };
+		CB135C01110AB16A009F7348 /* libAdMobSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135BFF110AB16A009F7348 /* libAdMobSimulator.a */; };
+		CB135C05110AB1B1009F7348 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C04110AB1B1009F7348 /* AddressBook.framework */; };
+		CB135C07110AB1B1009F7348 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C06110AB1B1009F7348 /* AudioToolbox.framework */; };
+		CB135C09110AB1B1009F7348 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C08110AB1B1009F7348 /* CoreLocation.framework */; };
+		CB135C0B110AB1B1009F7348 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C0A110AB1B1009F7348 /* MediaPlayer.framework */; };
+		CB135C0D110AB1B1009F7348 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C0C110AB1B1009F7348 /* QuartzCore.framework */; };
+		CB135C2A110AB3FB009F7348 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C29110AB3FB009F7348 /* MessageUI.framework */; };
+		CB135C7B110ABF78009F7348 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB135C7A110ABF78009F7348 /* Icon.png */; };
+		CB135CBB110AC699009F7348 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB135CBA110AC699009F7348 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GPAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GPAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* GPA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* GPAide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPAide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28216C950DB411BC00E5133A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesViewController.h; sourceTree = "<group>"; };
 		28216C960DB411BC00E5133A /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesViewController.m; sourceTree = "<group>"; };
@@ -44,6 +53,18 @@
 		CB13570B11095347009F7348 /* GPAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAViewController.h; sourceTree = "<group>"; };
 		CB13570C11095347009F7348 /* GPAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAViewController.m; sourceTree = "<group>"; };
 		CB135818110969C1009F7348 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CB135BFE110AB16A009F7348 /* libAdMobDevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMobDevice.a; sourceTree = "<group>"; };
+		CB135BFF110AB16A009F7348 /* libAdMobSimulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMobSimulator.a; sourceTree = "<group>"; };
+		CB135C02110AB178009F7348 /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
+		CB135C03110AB178009F7348 /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
+		CB135C04110AB1B1009F7348 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		CB135C06110AB1B1009F7348 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CB135C08110AB1B1009F7348 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CB135C0A110AB1B1009F7348 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CB135C0C110AB1B1009F7348 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB135C29110AB3FB009F7348 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CB135C7A110ABF78009F7348 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CB135CBA110AC699009F7348 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +75,14 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
-				CB135819110969C1009F7348 /* CoreData.framework in Frameworks */,
+				CB135C00110AB16A009F7348 /* libAdMobDevice.a in Frameworks */,
+				CB135C01110AB16A009F7348 /* libAdMobSimulator.a in Frameworks */,
+				CB135C05110AB1B1009F7348 /* AddressBook.framework in Frameworks */,
+				CB135C07110AB1B1009F7348 /* AudioToolbox.framework in Frameworks */,
+				CB135C09110AB1B1009F7348 /* CoreLocation.framework in Frameworks */,
+				CB135C0B110AB1B1009F7348 /* MediaPlayer.framework in Frameworks */,
+				CB135C0D110AB1B1009F7348 /* QuartzCore.framework in Frameworks */,
+				CB135C2A110AB3FB009F7348 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +105,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* GPA.app */,
+				1D6058910D05DD3D006BFB54 /* GPAide.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,12 +113,20 @@
 		29B97314FDCFA39411CA2CEA /* GPA */ = {
 			isa = PBXGroup;
 			children = (
+				CB135C7A110ABF78009F7348 /* Icon.png */,
+				CB135BFC110AB113009F7348 /* AdMob */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				CB135818110969C1009F7348 /* CoreData.framework */,
+				CB135C04110AB1B1009F7348 /* AddressBook.framework */,
+				CB135C06110AB1B1009F7348 /* AudioToolbox.framework */,
+				CB135C08110AB1B1009F7348 /* CoreLocation.framework */,
+				CB135C0A110AB1B1009F7348 /* MediaPlayer.framework */,
+				CB135C0C110AB1B1009F7348 /* QuartzCore.framework */,
+				CB135C29110AB3FB009F7348 /* MessageUI.framework */,
 			);
 			name = GPA;
 			sourceTree = "<group>";
@@ -114,6 +150,7 @@
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GPA-Info.plist */,
 				CB1356F611095035009F7348 /* GPAView.xib */,
+				CB135CBA110AC699009F7348 /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -128,12 +165,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB135BFC110AB113009F7348 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				CB135C02110AB178009F7348 /* AdMobDelegateProtocol.h */,
+				CB135C03110AB178009F7348 /* AdMobView.h */,
+				CB135BFE110AB16A009F7348 /* libAdMobDevice.a */,
+				CB135BFF110AB16A009F7348 /* libAdMobSimulator.a */,
+			);
+			name = AdMob;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* GPA */ = {
+		1D6058900D05DD3D006BFB54 /* GPAide */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GPA" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GPAide" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -143,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = GPA;
+			name = GPAide;
 			productName = GPA;
-			productReference = 1D6058910D05DD3D006BFB54 /* GPA.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* GPAide.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* GPA */,
+				1D6058900D05DD3D006BFB54 /* GPAide */,
 			);
 		};
 /* End PBXProject section */
@@ -176,6 +224,8 @@
 				CB1356EA11094CC9009F7348 /* flag.png in Resources */,
 				CB1356EF11094DC5009F7348 /* gear.png in Resources */,
 				CB1356F711095035009F7348 /* GPAView.xib in Resources */,
+				CB135C7B110ABF78009F7348 /* Icon.png in Resources */,
+				CB135CBB110AC699009F7348 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,13 +250,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GPA_Prefix.pch;
 				INFOPLIST_FILE = "GPA-Info.plist";
-				PRODUCT_NAME = GPA;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = GPAide;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
@@ -214,11 +270,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GPA_Prefix.pch;
 				INFOPLIST_FILE = "GPA-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = GPA;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Release;
 		};
@@ -251,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GPA" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GPAide" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

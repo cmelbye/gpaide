@@ -7,6 +7,7 @@
 //
 
 #import "GPAViewController.h"
+#import "AdMobView.h"
 #define FOBJ(x) [NSNumber numberWithFloat:x]
 
 @implementation GPAViewController
@@ -18,6 +19,14 @@
     [super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)loadView {
+	[super loadView];
+	
+	advert = [[AdMobView requestAdWithDelegate:self] retain];
+	advert.frame = CGRectMake(0, 0, 320, 48);
+	[self.view addSubview:advert];
 }
 
 - (void)viewDidLoad {
@@ -39,12 +48,18 @@
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	[self calculateGPA];
+	[advert requestFreshAd];
 }
 
 - (void)dealloc {
     [super dealloc];
+	[advert release];
 	[courses release];
 	[gradePointValues release];
+}
+
+- (NSString *)publisherId {
+	return @"a14b590c10d480d";
 }
 
 - (void)calculateGPA {
