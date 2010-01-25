@@ -13,6 +13,7 @@
 @implementation GPAViewController
 
 @synthesize gpaLabel;
+@synthesize infoLabel;
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -65,16 +66,28 @@
 - (void)calculateGPA {
 	[self loadCourses];
 	
-	float gpa = 0.00;
-	
-	for (id courseName in courses) {
-		gpa = gpa + [[gradePointValues objectForKey:[courses objectForKey:courseName]] floatValue];
+	if([courses count] > 0) {
+		float gpa = 0.00;
+		
+		for (id courseName in courses) {
+			gpa = gpa + [[gradePointValues objectForKey:[courses objectForKey:courseName]] floatValue];
+		}
+		
+		gpa = gpa / [courses count];
+		
+		NSLog(@"%f", gpa);
+		
+		if(gpa > 3) {
+			infoLabel.text = @"Keep up the good work!";
+		} else {
+			infoLabel.text = @"Keep trying!";
+		}
+		
+		gpaLabel.text = [NSString stringWithFormat:@"%0.2f", gpa];
+	} else {
+		infoLabel.text = @"Insert your courses to calculate your GPA.";
+		gpaLabel.text = @"0.00";
 	}
-	
-	gpa = gpa / [courses count];
-	
-	NSLog(@"%f", gpa);
-	gpaLabel.text = [[NSNumber numberWithFloat:gpa] stringValue];
 }
 
 - (void)loadCourses {
@@ -91,7 +104,6 @@
 		courses = [[NSMutableDictionary alloc] init];
 	}
 	
-	[courses retain];
 	[fileManager release];	
 }
 

@@ -16,9 +16,11 @@
 	NSDictionary *gradePointValues;
 	
 	UILabel *gpaLabel;
+	UILabel *infoLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *gpaLabel;
+@property (nonatomic, retain) IBOutlet UILabel *infoLabel;
 
 - (void)calculateGPA;
 - (void)loadCourses;
