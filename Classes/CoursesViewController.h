@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface CoursesViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate> {
+@interface CoursesViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate, UITextFieldDelegate> {
 	NSMutableDictionary *courses;	
 	UIBarButtonItem *addButton;
 	NSArray *letterGradeArray;
 	UIAlertView *addCourseAlert;
+	UITextField *addCourseField;
 	NSInteger letterGradeSelection;
 	NSIndexPath *editingIndex;
 }

@@ -8,13 +8,6 @@
 
 #import "CoursesViewController.h"
 
-@interface UIAlertView (extended)
-
-- (void)addTextFieldWithValue:(NSString *)value label:(NSString *)label;
-- (UITextField *)textFieldAtIndex:(NSInteger *)index;
-
-@end
-
 @implementation CoursesViewController
 
 @synthesize courses;
@@ -82,12 +75,20 @@
 }
 
 - (void)showCourseAlert {
-	addCourseAlert = [[UIAlertView alloc] init];
-	[addCourseAlert setDelegate:self];
-	[addCourseAlert setTitle:@"Add a Course"];
-	[addCourseAlert setMessage:@"What's the name of the course?"];
-	[addCourseAlert addButtonWithTitle:@"Add"];
-	[addCourseAlert addTextFieldWithValue:@"" label:@"AP US History"];
+	addCourseAlert = [[UIAlertView alloc] initWithTitle:@"What's the course called?\n\n" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+	addCourseField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+	//[addCourseField setBackgroundColor:[UIColor whiteColor]];
+	[addCourseField setAlpha:1];
+	[addCourseField setBorderStyle:UITextBorderStyleRoundedRect];
+	[addCourseField setKeyboardAppearance:UIKeyboardAppearanceAlert];
+	[addCourseField setDelegate:self];
+	
+	[addCourseAlert addSubview:addCourseField];
+	
+	CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 100.0);
+	[addCourseAlert setTransform:myTransform];
+	
+	[addCourseField becomeFirstResponder];
 	[addCourseAlert show];
 }
 
@@ -127,10 +128,16 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if ([alertView isEqual:addCourseAlert]) {
-		if (!([[addCourseAlert textFieldAtIndex:0] text] == @"")) {
-			[self addCourse:[[addCourseAlert textFieldAtIndex:0] text]];
+	if ([alertView isEqual:addCourseAlert] && buttonIndex == 1) {
+		if ([addCourseField text] != @"" && [addCourseField text] != nil) {
+			[self addCourse:[addCourseField text]];
 		}
+	}
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if ([alertView isEqual:addCourseAlert]) {
+		[addCourseField resignFirstResponder];
 	}
 }
 
@@ -222,6 +229,12 @@
 	}
 	
 	[self saveCourseList];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+	NSLog(@"editing now!");
+	
+	return YES;
 }
 
 - (void)viewDidUnload {
