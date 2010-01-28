@@ -29,7 +29,6 @@
 		CB135C0D110AB1B1009F7348 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C0C110AB1B1009F7348 /* QuartzCore.framework */; };
 		CB135C2A110AB3FB009F7348 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C29110AB3FB009F7348 /* MessageUI.framework */; };
 		CB135CBB110AC699009F7348 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB135CBA110AC699009F7348 /* Default.png */; };
-		CB2B814C110FCE0500FD9A37 /* TextAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2B814B110FCE0500FD9A37 /* TextAlertView.m */; };
 		CBBD8EF8110C16CA00DF215C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBD8EF7110C16CA00DF215C /* Icon.png */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +64,6 @@
 		CB135C0C110AB1B1009F7348 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB135C29110AB3FB009F7348 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB135CBA110AC699009F7348 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CB2B814A110FCE0500FD9A37 /* TextAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAlertView.h; sourceTree = "<group>"; };
-		CB2B814B110FCE0500FD9A37 /* TextAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAlertView.m; sourceTree = "<group>"; };
 		CBBD8EF7110C16CA00DF215C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,8 +98,6 @@
 				CB13570C11095347009F7348 /* GPAViewController.m */,
 				1D3623240D0F684500981E51 /* GPAAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GPAAppDelegate.m */,
-				CB2B814A110FCE0500FD9A37 /* TextAlertView.h */,
-				CB2B814B110FCE0500FD9A37 /* TextAlertView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -245,7 +240,6 @@
 				1D3623260D0F684500981E51 /* GPAAppDelegate.m in Sources */,
 				28216C970DB411BC00E5133A /* CoursesViewController.m in Sources */,
 				CB13570D11095347009F7348 /* GPAViewController.m in Sources */,
-				CB2B814C110FCE0500FD9A37 /* TextAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
