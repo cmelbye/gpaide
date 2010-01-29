@@ -60,7 +60,7 @@
 }
 
 - (NSString *)publisherId {
-	return @"a14b590c10d480d";
+	return kPublisherId;
 }
 
 - (void)calculateGPA {

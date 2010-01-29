@@ -7,6 +7,7 @@
 //
 
 #import "CoursesViewController.h"
+#import "AdMobView.h"
 
 @implementation CoursesViewController
 
@@ -27,7 +28,7 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 }
-*/
+ */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +48,6 @@
 	[fileManager release];
 	
 	[courses retain];
-	NSLog(@"%@", courses);
 	
 	// Setup letter grade array
 	letterGradeArray = [[[NSArray alloc] initWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil] retain];
@@ -60,6 +60,20 @@
 	
 	addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showCourseAlert)];
 	self.navigationItem.rightBarButtonItem = addButton;
+	
+	advert = [[AdMobView requestAdWithDelegate:self] retain];
+	advert.frame = CGRectMake(0, 0, 320, 48);
+	self.tableView.tableHeaderView = advert;
+}
+
+- (void)didFailToReceiveAd:(AdMobView *)adView {
+	advert = nil;
+	self.tableView.tableHeaderView = nil;
+	[advert release];
+}
+
+- (NSString *)publisherId {
+	return kPublisherId;
 }
 
 - (NSString *)coursesDatabasePath {  
@@ -118,7 +132,7 @@
 	gradePicker.showsSelectionIndicator = YES;
 	
     [gradePicker reloadAllComponents];
-    [gradePicker selectRow:[letterGradeArray indexOfObject:[[courses allValues] objectAtIndex:indexPath.row]] inComponent:0 animated:NO];
+    [gradePicker selectRow:letterGradeSelection inComponent:0 animated:NO];
 	
 	[gradeSheet insertSubview:gradePicker atIndex:0];
 	[gradeSheet showInView:[UIApplication sharedApplication].keyWindow];
@@ -201,14 +215,13 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
+	static NSString *CellIdentifier = @"Cell";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+	}
+	
 	// Configure the cell.
 	NSString *courseName = [[courses allKeys] objectAtIndex:indexPath.row];
 	

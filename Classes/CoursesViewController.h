@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdMobDelegateProtocol.h"
 
-@interface CoursesViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate, UITextFieldDelegate> {
+@interface CoursesViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate, UITextFieldDelegate, AdMobDelegate> {
 	NSMutableDictionary *courses;	
 	UIBarButtonItem *addButton;
 	NSArray *letterGradeArray;
@@ -16,6 +17,7 @@
 	UITextField *addCourseField;
 	NSInteger letterGradeSelection;
 	NSIndexPath *editingIndex;
+	AdMobView *advert;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *courses;

@@ -5,4 +5,6 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
+	
+	#define kPublisherId @"a14b590c10d480d"
 #endif
