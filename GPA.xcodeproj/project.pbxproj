@@ -273,7 +273,7 @@
 				);
 				PRODUCT_NAME = GPAide;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2.1;
+				SDKROOT = iphoneos3.1.2;
 			};
 			name = Debug;
 		};

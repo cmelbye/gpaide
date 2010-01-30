@@ -6,6 +6,7 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
 #import "AboutViewController.h"
 #import "AdMobView.h"
 
@@ -36,7 +37,19 @@
 }
 
 - (IBAction)openSupport:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://charliemelbye.com/support/"]];
+	if ([MFMailComposeViewController canSendMail]) {
+		MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+		[mail setToRecipients:[NSArray arrayWithObject:@"me@charliemelbye.com"]];
+		[mail setSubject:@"GPAide Support"];
+		[mail setMailComposeDelegate:self];
+		[self presentModalViewController:mail animated:YES];
+	} else {
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://charliemelbye.com/support/"]];
+	}
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

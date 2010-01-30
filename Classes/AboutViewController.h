@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AdMobDelegateProtocol.h"
 
-@interface AboutViewController : UIViewController <AdMobDelegate> {
+@interface AboutViewController : UIViewController <AdMobDelegate, MFMailComposeViewControllerDelegate> {
 
 }
 
