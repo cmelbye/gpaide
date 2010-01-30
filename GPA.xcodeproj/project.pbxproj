@@ -29,6 +29,8 @@
 		CB135C0D110AB1B1009F7348 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C0C110AB1B1009F7348 /* QuartzCore.framework */; };
 		CB135C2A110AB3FB009F7348 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB135C29110AB3FB009F7348 /* MessageUI.framework */; };
 		CB135CBB110AC699009F7348 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB135CBA110AC699009F7348 /* Default.png */; };
+		CBACCFDD11135849007E6ADE /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBACCFDC11135849007E6ADE /* AboutView.xib */; };
+		CBACCFE611135875007E6ADE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBACCFE411135875007E6ADE /* AboutViewController.m */; };
 		CBBD8EF8110C16CA00DF215C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBD8EF7110C16CA00DF215C /* Icon.png */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,9 @@
 		CB135C0C110AB1B1009F7348 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB135C29110AB3FB009F7348 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB135CBA110AC699009F7348 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CBACCFDC11135849007E6ADE /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
+		CBACCFE311135875007E6ADE /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		CBACCFE411135875007E6ADE /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		CBBD8EF7110C16CA00DF215C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +97,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CBACCFE311135875007E6ADE /* AboutViewController.h */,
+				CBACCFE411135875007E6ADE /* AboutViewController.m */,
 				28216C950DB411BC00E5133A /* CoursesViewController.h */,
 				28216C960DB411BC00E5133A /* CoursesViewController.m */,
 				CB13570B11095347009F7348 /* GPAViewController.h */,
@@ -146,6 +153,7 @@
 				CB1356E111094C43009F7348 /* cards.png */,
 				CB1356E911094CC9009F7348 /* flag.png */,
 				CB1356EE11094DC5009F7348 /* gear.png */,
+				CBACCFDC11135849007E6ADE /* AboutView.xib */,
 				282CCBFD0DB6C98000C4EA27 /* CoursesView.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GPA-Info.plist */,
@@ -226,6 +234,7 @@
 				CB1356F711095035009F7348 /* GPAView.xib in Resources */,
 				CB135CBB110AC699009F7348 /* Default.png in Resources */,
 				CBBD8EF8110C16CA00DF215C /* Icon.png in Resources */,
+				CBACCFDD11135849007E6ADE /* AboutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +249,7 @@
 				1D3623260D0F684500981E51 /* GPAAppDelegate.m in Sources */,
 				28216C970DB411BC00E5133A /* CoursesViewController.m in Sources */,
 				CB13570D11095347009F7348 /* GPAViewController.m in Sources */,
+				CBACCFE611135875007E6ADE /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +273,7 @@
 				);
 				PRODUCT_NAME = GPAide;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos2.2.1;
 			};
 			name = Debug;
 		};
