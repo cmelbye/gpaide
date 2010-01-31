@@ -28,6 +28,12 @@
 	advert = [[AdMobView requestAdWithDelegate:self] retain];
 	advert.frame = CGRectMake(0, 0, 320, 48);
 	[self.view addSubview:advert];
+	
+	
+	if (![refreshTimer isValid]) {
+		NSLog(@"starting ad refresh timer");
+		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:35.0 target:self selector:@selector(refreshAd:) userInfo:nil repeats:YES];
+	}
 }
 
 - (void)viewDidLoad {
@@ -63,6 +69,19 @@
 	return kPublisherId;
 }
 
+- (void)refreshAd:(NSTimer *)timer {
+	NSLog(@"requesting a new ad");
+	[advert requestFreshAd];
+}
+
+- (void)didReceiveAd:(AdMobView *)adView {
+	NSLog(@"received ad");
+}
+
+- (void)didFailToReceiveAd:(AdMobView *)adView {
+	NSLog(@"Ad request failed");
+}
+
 - (void)calculateGPA {
 	[self loadCourses];
 	
@@ -85,7 +104,7 @@
 		
 		gpaLabel.text = [NSString stringWithFormat:@"%0.2f", gpa];
 	} else {
-		infoLabel.text = @"Insert your courses to calculate your GPA.";
+		infoLabel.text = @"Insert your classes to calculate your GPA.";
 		gpaLabel.text = @"0.00";
 	}
 }

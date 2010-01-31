@@ -17,11 +17,14 @@
 	
 	UILabel *gpaLabel;
 	UILabel *infoLabel;
+	
+	NSTimer *refreshTimer;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *gpaLabel;
 @property (nonatomic, retain) IBOutlet UILabel *infoLabel;
 
+- (void)refreshAd:(NSTimer *)timer;
 - (void)calculateGPA;
 - (void)loadCourses;
 - (NSString *)coursesDatabasePath;

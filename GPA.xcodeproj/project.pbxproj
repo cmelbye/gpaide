@@ -32,13 +32,15 @@
 		CBACCFDD11135849007E6ADE /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBACCFDC11135849007E6ADE /* AboutView.xib */; };
 		CBACCFE611135875007E6ADE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBACCFE411135875007E6ADE /* AboutViewController.m */; };
 		CBBD8EF8110C16CA00DF215C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBD8EF7110C16CA00DF215C /* Icon.png */; };
+		CBDAF75C11153E5E00982E58 /* ClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDAF75B11153E5E00982E58 /* ClassCell.m */; };
+		CBDAF75E11153EF100982E58 /* ClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBDAF75D11153EF100982E58 /* ClassCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GPAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GPAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* GPAide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPAide.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* GPA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28216C950DB411BC00E5133A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesViewController.h; sourceTree = "<group>"; };
 		28216C960DB411BC00E5133A /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesViewController.m; sourceTree = "<group>"; };
@@ -70,6 +72,9 @@
 		CBACCFE311135875007E6ADE /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		CBACCFE411135875007E6ADE /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		CBBD8EF7110C16CA00DF215C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CBDAF75A11153E5E00982E58 /* ClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCell.h; sourceTree = "<group>"; };
+		CBDAF75B11153E5E00982E58 /* ClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCell.m; sourceTree = "<group>"; };
+		CBDAF75D11153EF100982E58 /* ClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,8 @@
 				CB13570C11095347009F7348 /* GPAViewController.m */,
 				1D3623240D0F684500981E51 /* GPAAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GPAAppDelegate.m */,
+				CBDAF75A11153E5E00982E58 /* ClassCell.h */,
+				CBDAF75B11153E5E00982E58 /* ClassCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -112,7 +119,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* GPAide.app */,
+				1D6058910D05DD3D006BFB54 /* GPA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 				8D1107310486CEB800E47090 /* GPA-Info.plist */,
 				CB1356F611095035009F7348 /* GPAView.xib */,
 				CB135CBA110AC699009F7348 /* Default.png */,
+				CBDAF75D11153EF100982E58 /* ClassCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -201,7 +209,7 @@
 			);
 			name = GPAide;
 			productName = GPA;
-			productReference = 1D6058910D05DD3D006BFB54 /* GPAide.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* GPA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,6 +243,7 @@
 				CB135CBB110AC699009F7348 /* Default.png in Resources */,
 				CBBD8EF8110C16CA00DF215C /* Icon.png in Resources */,
 				CBACCFDD11135849007E6ADE /* AboutView.xib in Resources */,
+				CBDAF75E11153EF100982E58 /* ClassCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +259,7 @@
 				28216C970DB411BC00E5133A /* CoursesViewController.m in Sources */,
 				CB13570D11095347009F7348 /* GPAViewController.m in Sources */,
 				CBACCFE611135875007E6ADE /* AboutViewController.m in Sources */,
+				CBDAF75C11153E5E00982E58 /* ClassCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +277,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GPA_Prefix.pch;
 				INFOPLIST_FILE = "GPA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

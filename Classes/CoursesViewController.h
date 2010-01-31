@@ -18,11 +18,13 @@
 	NSInteger letterGradeSelection;
 	NSIndexPath *editingIndex;
 	AdMobView *advert;
+	NSTimer *refreshTimer;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *courses;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
 
+- (void)refreshAd:(NSTimer *)timer;
 - (NSString *)coursesDatabasePath;
 - (void)saveCourseList;
 - (void)showCourseAlert;

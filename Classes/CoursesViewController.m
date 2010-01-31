@@ -8,6 +8,7 @@
 
 #import "CoursesViewController.h"
 #import "AdMobView.h"
+#import "ClassCell.h"
 
 @implementation CoursesViewController
 
@@ -53,7 +54,7 @@
 	letterGradeArray = [[[NSArray alloc] initWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil] retain];
 	
 	// Set the title
-	self.title = @"Courses";
+	self.title = @"Classes";
 	
 	// Set up the button
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -63,13 +64,23 @@
 	
 	advert = [[AdMobView requestAdWithDelegate:self] retain];
 	advert.frame = CGRectMake(0, 0, 320, 48);
+	
+	if (![refreshTimer isValid]) {
+		NSLog(@"starting ad refresh timer");
+		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:35.0 target:self selector:@selector(refreshAd:) userInfo:nil repeats:YES];
+	}
+}
+
+- (void)refreshAd:(NSTimer *)timer {
+	[advert requestFreshAd];
+}
+
+- (void)didReceiveAd:(AdMobView *)adView {
 	self.tableView.tableHeaderView = advert;
 }
 
 - (void)didFailToReceiveAd:(AdMobView *)adView {
-	advert = nil;
-	self.tableView.tableHeaderView = nil;
-	[advert release];
+	NSLog(@"failed to receive ad");
 }
 
 - (NSString *)publisherId {
@@ -89,7 +100,7 @@
 }
 
 - (void)showCourseAlert {
-	addCourseAlert = [[UIAlertView alloc] initWithTitle:@"What's the course called?\n\n" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+	addCourseAlert = [[UIAlertView alloc] initWithTitle:@"What's the class called?\n\n" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
 	addCourseField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
 	//[addCourseField setBackgroundColor:[UIColor whiteColor]];
 	[addCourseField setAlpha:1];
@@ -215,18 +226,25 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *CellIdentifier = @"Cell";
+	static NSString *CellIdentifier = @"ClassCell";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	ClassCell *cell = (ClassCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ClassCell" owner:nil options:nil];
+		
+		for (id currentObject in topLevelObjects) {
+			if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+				cell = (ClassCell *) currentObject;
+				break;
+			}
+		}
 	}
 	
 	// Configure the cell.
 	NSString *courseName = [[courses allKeys] objectAtIndex:indexPath.row];
 	
-	cell.textLabel.text = courseName;
-	cell.detailTextLabel.text = [courses objectForKey:courseName];
+	cell.classNameLabel.text = courseName;
+	cell.letterGradeLabel.text = [courses objectForKey:courseName];
 	
     return cell;
 }

@@ -3,16 +3,16 @@
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
 		<string key="IBDocument.SystemVersion">10C540</string>
-		<string key="IBDocument.InterfaceBuilderVersion">759</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
 		<string key="IBDocument.AppKitVersion">1038.25</string>
 		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">79</string>
+			<string key="NS.object.0">62</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="173"/>
+			<integer value="137"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -31,15 +31,11 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="IBProxyObject" id="841351856">
 				<string key="IBProxiedObjectIdentifier">IBFilesOwner</string>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBProxyObject" id="532797962">
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUICustomObject" id="664661524">
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-			</object>
+			<object class="IBUICustomObject" id="664661524"/>
 			<object class="IBUIWindow" id="380026005">
 				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">1316</int>
@@ -52,46 +48,49 @@
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIVisibleAtLaunch">YES</bool>
 			</object>
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="189784063">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="374341728">
-						<string key="IBUITitle">About</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="31624970">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="513575088">
+						<string key="IBUITitle">Classes</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">gear.png</string>
+							<string key="NSResourceName">cards.png</string>
 						</object>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIToolbarItems" ref="0"/>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
-					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="818845167">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="442035423">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{320, 44}</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="NSArray" key="IBUIViewControllers">
+					<object class="IBUIToolbar" key="IBUIToolbar" id="265554171">
+						<nil key="NSNextResponder"/>
+						<int key="NSvFlags">256</int>
+						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">4</int>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+					</object>
+					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="605305696">
+						<object class="IBUIViewController" id="140868482">
 							<reference key="IBUIToolbarItems" ref="0"/>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="290189150">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="50806520">
 								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle">About</string>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUITitle">Classes</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="189784063"/>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<reference key="IBUIParentViewController" ref="31624970"/>
+							<string key="IBUINibName">CoursesView</string>
 						</object>
 					</object>
 				</object>
@@ -104,12 +103,10 @@
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">flag.png</string>
 							</object>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="IBUINavigationBar" key="IBUINavigationBar" id="389375729">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
@@ -117,7 +114,6 @@
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
 							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -125,61 +121,43 @@
 								<reference key="IBUIToolbarItems" ref="0"/>
 								<object class="IBUINavigationItem" key="IBUINavigationItem" id="725149173">
 									<string key="IBUITitle">GPA</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIParentViewController" ref="758849194"/>
 								<string key="IBUINibName">GPAView</string>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="31624970">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="513575088">
-							<string key="IBUITitle">Courses</string>
+					<reference ref="31624970"/>
+					<object class="IBUINavigationController" id="189784063">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="374341728">
+							<string key="IBUITitle">About</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">cards.png</string>
+								<string key="NSResourceName">gear.png</string>
 							</object>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="442035423">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="818845167">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{320, 44}</string>
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
 							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<object class="IBUIToolbar" key="IBUIToolbar" id="265554171">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">256</int>
-							<string key="NSFrame">{{0, 416}, {320, 44}}</string>
-							<bool key="IBUIOpaque">NO</bool>
-							<bool key="IBUIClipsSubviews">YES</bool>
-							<int key="IBUIContentMode">4</int>
-							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="140868482">
+							<object class="IBUIViewController" id="605305696">
 								<reference key="IBUIToolbarItems" ref="0"/>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="50806520">
-									<string key="IBUITitle">Courses</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="290189150">
+									<string key="IBUITitle">About</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="31624970"/>
-								<string key="IBUINibName">CoursesView</string>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUIParentViewController" ref="189784063"/>
 							</object>
 						</object>
 					</object>
-					<reference ref="189784063"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="795333663">
 					<nil key="NSNextResponder"/>
@@ -190,7 +168,6 @@
 						<bytes key="NSWhite">MCAwAA</bytes>
 					</object>
 					<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				</object>
 			</object>
 		</object>
@@ -407,7 +384,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{761, 260}, {320, 480}}</string>
+					<string>{{584, 260}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CoursesViewController</string>
@@ -465,7 +442,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">AboutViewController.h</string>
+						<string key="minorKey">Classes/AboutViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -810,7 +787,6 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
 			<integer value="768" key="NS.object.0"/>
@@ -822,22 +798,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">GPA.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<bool key="EncodedWithXMLCoder">YES</bool>
-			<object class="NSArray" key="dict.sortedKeys">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>cards.png</string>
-				<string>flag.png</string>
-				<string>gear.png</string>
-			</object>
-			<object class="NSMutableArray" key="dict.values">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{26, 17}</string>
-				<string>{18, 26}</string>
-				<string>{26, 26}</string>
-			</object>
-		</object>
-		<string key="IBCocoaTouchPluginVersion">79</string>
-		<nil key="IBCocoaTouchSimulationTargetRuntimeIdentifier"/>
+		<string key="IBCocoaTouchPluginVersion">3.1</string>
 	</data>
 </archive>
