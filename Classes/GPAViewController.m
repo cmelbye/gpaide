@@ -7,13 +7,13 @@
 //
 
 #import "GPAViewController.h"
-#import "AdMobView.h"
 #define FOBJ(x) [NSNumber numberWithFloat:x]
 
 @implementation GPAViewController
 
 @synthesize gpaLabel;
 @synthesize infoLabel;
+@synthesize initialAppear;
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -24,20 +24,18 @@
 
 - (void)loadView {
 	[super loadView];
-	
-	advert = [[AdMobView requestAdWithDelegate:self] retain];
-	advert.frame = CGRectMake(0, 0, 320, 48);
-	[self.view addSubview:advert];
 }
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
 	// Setup Grade Point Values
-	NSArray *keys = [NSArray arrayWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil];
-	NSArray *values = [NSArray arrayWithObjects:FOBJ(4.00), FOBJ(3.67), FOBJ(3.33), FOBJ(3.00), FOBJ(2.67), FOBJ(2.33), FOBJ(2.00), FOBJ(1.67), FOBJ(1.33), FOBJ(1.00), FOBJ(0.67), FOBJ(0.00), nil];
-	gradePointValues = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
+	NSArray *keys = [NSArray arrayWithObjects:@"A+", @"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil];
+	NSArray *values = [NSArray arrayWithObjects:FOBJ(4.33), FOBJ(4.00), FOBJ(3.67), FOBJ(3.33), FOBJ(3.00), FOBJ(2.67), FOBJ(2.33), FOBJ(2.00), FOBJ(1.67), FOBJ(1.33), FOBJ(1.00), FOBJ(0.67), FOBJ(0.00), nil];
+	gradePointValues = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 	
+    self.initialAppear = NO;
+    
 	NSLog(@"Loaded courses and calculated GPA.");
 }
 
@@ -48,19 +46,47 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
+    
+    GPAAppDelegate *appDelegate = (GPAAppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.currentController = self;
+    
 	[self calculateGPA];
-	[advert requestFreshAd];
+    
+    if (self.initialAppear != YES) {
+        [UIView beginAnimations:nil context:NULL];
+        self.postItImageView.alpha = 1.0;
+        self.gpaLabel.alpha = 1.0;
+        self.infoLabel.alpha = 1.0;
+        [UIView commitAnimations];
+        
+        self.initialAppear = YES;
+    }
 }
 
-- (void)dealloc {
-    [super dealloc];
-	[advert release];
-	[courses release];
-	[gradePointValues release];
+- (void)layoutAnimated:(BOOL)animated
+{
+    CGRect bannerFrame = _bannerView.frame;
+    if (_bannerView.bannerLoaded) {
+        bannerFrame.origin.y = 0;
+    }
+    
+    [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
+        _bannerView.frame = bannerFrame;
+    }];
 }
 
-- (NSString *)publisherId {
-	return kPublisherId;
+- (void)showBannerView:(ADBannerView *)bannerView animated:(BOOL)animated
+{
+    _bannerView = bannerView;
+    _bannerView.frame = CGRectMake(0, -50, 0, 0);
+    [self.view addSubview:_bannerView];
+    [self layoutAnimated:animated];
+}
+
+- (void)hideBannerView:(ADBannerView *)bannerView animated:(BOOL)animated
+{
+    _bannerView = nil;
+    [self layoutAnimated:animated];
 }
 
 - (void)calculateGPA {
@@ -93,7 +119,6 @@
 - (void)loadCourses {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	
-	[courses release];
 	
 	// Load courses
 	if([fileManager fileExistsAtPath:[self coursesDatabasePath]]) {
@@ -104,7 +129,6 @@
 		courses = [[NSMutableDictionary alloc] init];
 	}
 	
-	[fileManager release];	
 }
 
 - (NSString *)coursesDatabasePath {

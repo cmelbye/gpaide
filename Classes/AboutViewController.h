@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AdMobDelegateProtocol.h"
+#import "WebResourceViewController.h"
 
-@interface AboutViewController : UIViewController <AdMobDelegate, MFMailComposeViewControllerDelegate> {
+@interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate> {
 
 }
 
-- (IBAction)openWebsite:(id)sender;
 - (IBAction)openSupport:(id)sender;
 
 @end

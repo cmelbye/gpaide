@@ -7,7 +7,6 @@
 //
 
 #import "CoursesViewController.h"
-#import "AdMobView.h"
 
 @implementation CoursesViewController
 
@@ -45,12 +44,10 @@
 		courses = [[NSMutableDictionary alloc] init];
 	}
 	
-	[fileManager release];
 	
-	[courses retain];
 	
 	// Setup letter grade array
-	letterGradeArray = [[[NSArray alloc] initWithObjects:@"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil] retain];
+	letterGradeArray = [[NSArray alloc] initWithObjects:@"A+", @"A", @"A-", @"B+", @"B", @"B-", @"C+", @"C", @"C-", @"D+", @"D", @"D-", @"F", nil];
 	
 	// Set the title
 	self.title = @"Courses";
@@ -60,20 +57,6 @@
 	
 	addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showCourseAlert)];
 	self.navigationItem.rightBarButtonItem = addButton;
-	
-	advert = [[AdMobView requestAdWithDelegate:self] retain];
-	advert.frame = CGRectMake(0, 0, 320, 48);
-	self.tableView.tableHeaderView = advert;
-}
-
-- (void)didFailToReceiveAd:(AdMobView *)adView {
-	advert = nil;
-	self.tableView.tableHeaderView = nil;
-	[advert release];
-}
-
-- (NSString *)publisherId {
-	return kPublisherId;
 }
 
 - (NSString *)coursesDatabasePath {  
@@ -99,8 +82,8 @@
 	
 	[addCourseAlert addSubview:addCourseField];
 	
-	CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 100.0);
-	[addCourseAlert setTransform:myTransform];
+	//CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 100.0);
+	//[addCourseAlert setTransform:myTransform];
 	
 	[addCourseField becomeFirstResponder];
 	[addCourseAlert show];
@@ -116,29 +99,53 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
-	
+    
 	editingIndex = indexPath;
 	letterGradeSelection = [letterGradeArray indexOfObject:[[courses allValues] objectAtIndex:indexPath.row]];
 	
-	UIActionSheet *gradeSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n"
-															delegate:self
-												   cancelButtonTitle:nil
-											  destructiveButtonTitle:nil
-												   otherButtonTitles:@"Okay", nil];
-	
-	UIPickerView *gradePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-	gradePicker.dataSource = self;
-	gradePicker.delegate = self;
-	gradePicker.showsSelectionIndicator = YES;
-	
-    [gradePicker reloadAllComponents];
-    [gradePicker selectRow:letterGradeSelection inComponent:0 animated:NO];
-	
-	[gradeSheet insertSubview:gradePicker atIndex:0];
-	[gradeSheet showInView:[UIApplication sharedApplication].keyWindow];
-	
-	[gradePicker release];
-	[gradeSheet release];
+    editCourseSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    [editCourseSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    
+    editCourseSheet.frame = CGRectMake(0, -(editCourseSheet.frame.size.height), editCourseSheet.frame.size
+                                       .width, editCourseSheet.frame.size.height);
+    
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    
+    [pickerView reloadAllComponents];
+    [pickerView selectRow:letterGradeSelection inComponent:0 animated:NO];
+    
+    [editCourseSheet addSubview:pickerView];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Done"]];
+    closeButton.momentary = YES; 
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor colorWithRed:80.0 / 255.0 green:129.0/255.0 blue:224.0 / 255.0 alpha:1.0];
+    [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    [editCourseSheet addSubview:closeButton];
+    
+    [editCourseSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25];
+    
+    [editCourseSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    
+    [UIView commitAnimations];
+}
+
+- (void)dismissActionSheet:(id)sender {
+    [editCourseSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -188,7 +195,7 @@
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-	return 280.0;
+	return 290.0;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
@@ -219,7 +226,7 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
 	}
 	
 	// Configure the cell.
@@ -253,13 +260,6 @@
 - (void)viewDidUnload {
 	self.courses = nil;
 	self.addButton = nil;
-}
-
-
-- (void)dealloc {
-	[courses release];
-	[addButton release];
-	[super dealloc];
 }
 
 @end

@@ -10,16 +10,28 @@
 
 @implementation GPAAppDelegate
 
-@synthesize window;
-@synthesize tabBarController;
+@synthesize window = _window;
+@synthesize bannerView = _bannerView;
+@synthesize currentController = _currentController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    _bannerView = [[ADBannerView alloc] init];
+    _bannerView.delegate = self;
     
-    // Add the tab bar controller's current view as a subview of the window
-    [window addSubview:tabBarController.view];
+    return YES;
 }
 
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    [_currentController showBannerView:banner animated:YES];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    [_currentController hideBannerView:_bannerView animated:YES];
+}
 
 /*
 // Optional UITabBarControllerDelegate method
@@ -34,11 +46,6 @@
 */
 
 
-- (void)dealloc {
-    [tabBarController release];
-    [window release];
-    [super dealloc];
-}
 
 @end
 

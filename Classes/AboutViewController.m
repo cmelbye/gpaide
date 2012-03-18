@@ -8,43 +8,18 @@
 
 #import <MessageUI/MessageUI.h>
 #import "AboutViewController.h"
-#import "AdMobView.h"
 
 @implementation AboutViewController
-
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	
-	
-}
-
-- (NSString *)publisherId {
-	return kPublisherId; // this should be prefilled; if not, get it from www.admob.com
-}
-
-- (IBAction)openWebsite:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://charliemelbye.com/iphone-apps/gpaide/"]];
-}
 
 - (IBAction)openSupport:(id)sender {
 	if ([MFMailComposeViewController canSendMail]) {
 		MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-		[mail setToRecipients:[NSArray arrayWithObject:@"me@charliemelbye.com"]];
+		[mail setToRecipients:[NSArray arrayWithObject:@"charles.melbye@gmail.com"]];
 		[mail setSubject:@"GPAide Support"];
 		[mail setMailComposeDelegate:self];
 		[self presentModalViewController:mail animated:YES];
 	} else {
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://charliemelbye.com/support/"]];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cmelbye.github.com/gpaide/support.html"]];
 	}
 }
 
@@ -52,23 +27,14 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"TipsAndTricksSegue"]) {
+        WebResourceViewController *vc = segue.destinationViewController;
+        vc.webAddress = @"http://cmelbye.github.com/gpaide/tips.html";
+    } else if ([segue.identifier isEqualToString:@"AboutSegue"]) {
+        WebResourceViewController *vc = segue.destinationViewController;
+        vc.webAddress = @"http://cmelbye.github.com/gpaide/about.html";
+    }
 }
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-    [super dealloc];
-}
-
 
 @end

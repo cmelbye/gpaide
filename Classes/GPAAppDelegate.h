@@ -7,13 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface GPAAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+@protocol BannerViewContainer <NSObject>
+
+- (void)showBannerView:(ADBannerView *)bannerView animated:(BOOL)animated;
+- (void)hideBannerView:(ADBannerView *)bannerView animated:(BOOL)animated;
+
+@end
+
+@interface GPAAppDelegate : UIResponder <UIApplicationDelegate, ADBannerViewDelegate> {
     UIWindow *window;
-    UITabBarController *tabBarController;
+    ADBannerView *_bannerView;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) ADBannerView *bannerView;
+@property (nonatomic, strong) UIViewController<BannerViewContainer> *currentController;
 
 @end
